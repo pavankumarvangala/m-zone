@@ -2,7 +2,7 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Home from "./components/Home";
 import ProductDetails from "./components/ProductDetails";
-import ProductList from "./components/ProductList";
+import Cart from "./components/Cart";
 
 function App() {
   return (
@@ -20,12 +20,12 @@ const appRouter = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/productDetails",
+    path: "/productDetails/:category/:id",
     element: <ProductDetails />,
   },
   {
-    path: "/productList",
-    element: <ProductList />,
+    path: "/cart",
+    element: <Cart />,
   },
 ]);
 
