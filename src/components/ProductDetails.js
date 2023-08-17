@@ -1,29 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { productsList } from "../utils/constants";
+import React from "react";
 import { useParams } from "react-router-dom";
 import ProductDetailsCard from "./ProductDetailsCard";
+import useFetchDetails from "../utils/useFetchDetails";
 
 const ProductDetails = () => {
-  const [products, setProducts] = useState();
-  const params = useParams();
-  console.log(params);
-  useEffect(() => {
-    setProducts(productsList);
-  }, []);
-  if (!products) return;
+  const { category, id } = useParams();
+  const product = useFetchDetails(id);
+  if (!product) return;
   return (
     <div>
-      {products[params.category].map((item) => {
-        return (
-          item.product_id == params.id && (
-            <ProductDetailsCard
-              key={params.id}
-              category={params.category}
-              info={item}
-            />
-          )
-        );
-      })}
+      <ProductDetailsCard info={product} />
     </div>
   );
 };
