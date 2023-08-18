@@ -6,12 +6,16 @@ import Cart from "./components/Cart";
 import Dashboard from "./components/Dashboard";
 import Category from "./components/Category";
 import CategoryDetails from "./components/CategoryDetails";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 function App() {
   return (
-    <div>
-      <RouterProvider router={appRouter} />
-    </div>
+    <Provider store={store}>
+      <div>
+        <RouterProvider router={appRouter} />
+      </div>
+    </Provider>
   );
 }
 

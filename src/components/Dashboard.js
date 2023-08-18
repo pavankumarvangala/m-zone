@@ -17,14 +17,7 @@ const Dashboard = () => {
             <div>
               <ul className="ml-3 flex">
                 {categories[category].map((item) => {
-                  return (
-                    <Link
-                      to={`/productDetails/${item.category}/${item.id}`}
-                      key={item.id}
-                    >
-                      <ProductCard info={item} />
-                    </Link>
-                  );
+                  return <ProductCard info={item} key={item.id} />;
                 })}
               </ul>
             </div>

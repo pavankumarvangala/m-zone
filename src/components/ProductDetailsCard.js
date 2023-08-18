@@ -1,7 +1,10 @@
 import React from "react";
-
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../utils/cartSlice";
 const ProductDetailsCard = ({ info }) => {
-  const { category, image, title, rating, price } = info;
+  const { id, category, image, title, rating, price } = info;
+  const dispatch = useDispatch();
+
   return (
     <div className="h-[350px] w-[300px]">
       <h4 className="font-bold text-2xl">{category}</h4>
@@ -12,7 +15,10 @@ const ProductDetailsCard = ({ info }) => {
         <div>Rating: {rating?.rate}</div>
       </div>
       <div className="flex justify-around">
-        <button className="px-3 py-2 m-2 bg-green-200 rounded-lg">
+        <button
+          className="px-3 py-2 m-2 bg-green-200 rounded-lg"
+          onClick={() => dispatch(addItemToCart(info))}
+        >
           Add to cart
         </button>
         <button className="px-3 py-2 m-2 bg-green-200 rounded-lg">
