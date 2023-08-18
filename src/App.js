@@ -5,6 +5,7 @@ import ProductDetails from "./components/ProductDetails";
 import Cart from "./components/Cart";
 import Dashboard from "./components/Dashboard";
 import Category from "./components/Category";
+import CategoryDetails from "./components/CategoryDetails";
 
 function App() {
   return (
@@ -26,6 +27,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/category",
         element: <Category />,
+      },
+      {
+        path: "/category/details/:id",
+        element: <CategoryDetails />,
       },
       {
         path: "/productDetails/:category/:id",
